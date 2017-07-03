@@ -4,11 +4,11 @@
     "version": "1.0.0",
     "description": "",
     "license": "MIT",
-    "repository": "user/repo",
+    "repository": "https://github.com/a-sync/electron-desktopCapturer",
     "author": {
-        "name": "",
-        "email": "",
-        "url": ""
+        "name": "smith",
+        "email": "bill@microsoft.com",
+        "url": "http://devs.space"
     },
     "scripts": {
         "test": "xo",

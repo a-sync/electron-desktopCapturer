@@ -4,55 +4,19 @@
     <meta charset="utf-8">
     <title>Electron boilerplate</title>
     <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="adapter.js"></script>
 </head>
 <body>
 <div class="container">
     <header>
         <h2>Electron desktopCapturer</h2>
+        <video id="video" muted></video>
     </header>
     <section class="main">
         <div id="sources"></div>
     </section>
-    <footer></footer>
+    <footer><button onclick="captureScreen()">Capture entire screen</button> <button onclick="stopVideo()">Stop capture</button></footer>
 </div>
-<script>
-    'use strict';
-
-    const sourcesDiv = document.getElementById('sources');
-    const sourceTypes = ['screen'];//, 'window', 'desktop'];
-    const thumbSize = {width: 300, height: 300};
-    window.desktopCapturer.getSources({types: sourceTypes, thumbnailSize: thumbSize}, function (err, sources) {
-        if (err) {
-            console.error('desktopCapturer.getSources error', err);
-            throw err;
-        }
-
-        console.info('desktopCapturer sources', JSON.stringify(sources, null, 2));
-
-        sourcesDiv.innerHTML = '';
-        sources.forEach(function (dcSource) {
-            let item = document.createElement('div');
-
-            let itemName = document.createElement('div');
-            itemName.textContent = `${dcSource.name} (${dcSource.id})`;
-
-            let img = new Image();
-            img.src = dcSource.thumbnail.toDataURL();
-
-            item.appendChild(img);
-            item.appendChild(itemName);
-            sourcesDiv.appendChild(item);
-        });
-
-        /*callback(null, {
-            video: {
-                mandatory: {
-                    chromeMediaSource: 'screen',
-                    chromeMediaSourceId: source.id
-                }
-            }
-        });*/
-    });
-</script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
