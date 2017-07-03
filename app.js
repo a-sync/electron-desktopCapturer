@@ -1,44 +1,44 @@
 'use strict';
 
 const sourcesDiv = document.getElementById('sources');
-const sourceTypes = ['screen'];//, 'window', 'desktop'];
 const thumbSize = {width: 300, height: 300};
+function getSources (type) {
+    window.desktopCapturer.getSources({types: [type], thumbnailSize: thumbSize}, (err, sources) => {
+        if (err) {
+            console.error('desktopCapturer.getSources error', err);
+            throw err;
+        }
 
-window.desktopCapturer.getSources({types: sourceTypes, thumbnailSize: thumbSize}, (err, sources) => {
-    if (err) {
-        console.error('desktopCapturer.getSources error', err);
-        throw err;
-    }
+        console.info('desktopCapturer sources', JSON.stringify(sources, null, 2));
 
-    console.info('desktopCapturer sources', JSON.stringify(sources, null, 2));
+        sourcesDiv.innerHTML = '';
+        sources.forEach(dcSource => {
+            let item = document.createElement('div');
 
-    sourcesDiv.innerHTML = '';
-    sources.forEach(dcSource => {
-        let item = document.createElement('div');
-
-        let btn = document.createElement('button');
-        btn.textContent = `${dcSource.name} (${dcSource.id})`;
-        btn.onclick = function () {
-            setVideo({
-                audio: false,
-                video: {
-                    mandatory: {
-                        chromeMediaSource: 'desktop',
-                        chromeMediaSourceId: dcSource.id
+            let btn = document.createElement('button');
+            btn.textContent = `${dcSource.name} (${dcSource.id})`;
+            btn.onclick = function () {
+                setVideo({
+                    audio: false,
+                    video: {
+                        mandatory: {
+                            chromeMediaSource: 'desktop',
+                            chromeMediaSourceId: dcSource.id
+                        }
                     }
-                }
-            });
-        };
+                });
+            };
 
-        let img = new Image();
-        img.src = dcSource.thumbnail.toDataURL();
+            let img = new Image();
+            img.src = dcSource.thumbnail.toDataURL();
 
-        item.appendChild(img);
-        item.appendChild(document.createElement('br'));
-        item.appendChild(btn);
-        sourcesDiv.appendChild(item);
+            item.appendChild(btn);
+            item.appendChild(document.createElement('br'));
+            item.appendChild(img);
+            sourcesDiv.appendChild(item);
+        });
     });
-});
+}
 
 const video = document.getElementById('video');
 function setVideo (mediaConstraints) {

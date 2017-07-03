@@ -10,12 +10,13 @@
 <div class="container">
     <header>
         <h2>Electron desktopCapturer</h2>
-        <video id="video" autoplay></video>
+        <div id="controls"><button onclick="getSources('screen')">Get screens</button> <button onclick="getSources('window')">Get windows</button> <button onclick="captureScreen()">Capture entire screen</button> <button onclick="stopVideo()">STOP</button></div>
     </header>
     <section class="main">
+        <video id="video" autoplay></video>
         <div id="sources"></div>
     </section>
-    <footer><button onclick="captureScreen()">Capture entire screen</button> <button onclick="stopVideo()">Stop capture</button></footer>
+    <footer></footer>
 </div>
 <script type="text/javascript" src="app.js"></script>
 </body>

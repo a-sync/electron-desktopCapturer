@@ -1,15 +1,8 @@
 # electron-desktopCapturer
 
-
-## Dev
-
-```
-$ npm install
-```
-
 ### Run
 
 ```
+$ npm install
 $ npm start
 ```
-
