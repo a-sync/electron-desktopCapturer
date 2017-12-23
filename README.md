@@ -1,6 +1,8 @@
 # electron-desktopCapturer
 
-### Run
+[Downloads](https://github.com/a-sync/electron-desktopCapturer/releases/)
+
+### Run from source
 
 ```
 $ npm install
