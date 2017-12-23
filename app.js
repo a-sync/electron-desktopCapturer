@@ -2,7 +2,7 @@
 
 const sourcesDiv = document.getElementById('sources');
 const thumbSize = {width: 300, height: 300};
-function getSources (type) {
+function getSources(type) { // eslint-disable-line no-unused-vars
     window.desktopCapturer.getSources({types: [type], thumbnailSize: thumbSize}, (err, sources) => {
         if (err) {
             console.error('desktopCapturer.getSources error', err);
@@ -13,9 +13,9 @@ function getSources (type) {
 
         sourcesDiv.innerHTML = '';
         sources.forEach(dcSource => {
-            let item = document.createElement('div');
+            const item = document.createElement('div');
 
-            let btn = document.createElement('button');
+            const btn = document.createElement('button');
             btn.textContent = `${dcSource.name} (${dcSource.id})`;
             btn.onclick = function () {
                 setVideo({
@@ -29,7 +29,7 @@ function getSources (type) {
                 });
             };
 
-            let img = new Image();
+            const img = new Image();
             img.src = dcSource.thumbnail.toDataURL();
 
             item.appendChild(btn);
@@ -41,7 +41,7 @@ function getSources (type) {
 }
 
 const video = document.getElementById('video');
-function setVideo (mediaConstraints) {
+function setVideo(mediaConstraints) {
     navigator.mediaDevices.getUserMedia(mediaConstraints)
         .then(stream => {
             stopVideo();
@@ -53,7 +53,7 @@ function setVideo (mediaConstraints) {
         });
 }
 
-function stopVideo () {
+function stopVideo() {
     if (video.srcObject) {
         video.srcObject.getTracks().forEach(t => {
             t.stop();
@@ -63,7 +63,7 @@ function stopVideo () {
     }
 }
 
-function captureScreen () {
+function captureScreen() { // eslint-disable-line no-unused-vars
     setVideo({
         audio: false,
         video: {

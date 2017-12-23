@@ -2,15 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Electron boilerplate</title>
     <link rel="stylesheet" href="index.css">
     <script type="text/javascript" src="adapter.js"></script>
 </head>
 <body>
 <div class="container">
     <header>
-        <h2>Electron desktopCapturer</h2>
-        <div id="controls"><button onclick="getSources('screen')">Get screens</button> <button onclick="getSources('window')">Get windows</button> <button onclick="captureScreen()">Capture entire screen</button> <button onclick="stopVideo()">STOP</button></div>
+        <div id="controls"><button onclick="getSources('screen')">List screens</button> <button onclick="getSources('window')">List windows</button> <button onclick="captureScreen()">Capture entire screen</button> <button onclick="stopVideo()">STOP</button></div>
     </header>
     <section class="main">
         <video id="video" autoplay></video>

@@ -1,7 +1,8 @@
 'use strict';
-const {app, ipcMain, BrowserWindow} = require('electron');
-//app.commandLine.appendSwitch('--allow-http-screen-capture');
-//app.commandLine.appendSwitch('--enable-usermedia-screen-capturing');
+const {app, BrowserWindow} = require('electron');
+// Associated cmd switches:
+// app.commandLine.appendSwitch('--allow-http-screen-capture');
+// app.commandLine.appendSwitch('--enable-usermedia-screen-capturing');
 
 // Adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')();

@@ -1,19 +1,21 @@
 {
-    "name": "app",
-    "productName": "App",
-    "version": "1.0.0",
-    "description": "",
+    "name": "electron-desktopCapturer",
+    "productName": "electron-desktopCapturer",
+    "version": "1.0.1",
+    "description": "Electron desktopCapturer test tool",
     "license": "MIT",
     "repository": "https://github.com/a-sync/electron-desktopCapturer",
     "author": {
         "name": "smith",
-        "email": "bill@microsoft.com",
-        "url": "http://devs.space"
+        "email": "contact@andras.online",
+        "url": "http://andras.online"
     },
     "scripts": {
         "test": "xo",
         "start": "electron .",
-        "build": "electron-packager . --out=dist --asar --overwrite --all"
+        "build": "electron-packager . --out=dist --asar --overwrite --all",
+        "buildx64linux": "electron-packager . --out=dist --asar --overwrite --platform=linux --arch=x64",
+        "buildx64win": "electron-packager . --out=dist --asar --overwrite --platform=win32 --arch=x64"
     },
     "dependencies": {
         "electron-debug": "^1.4.0",
@@ -22,7 +24,7 @@
     "devDependencies": {
         "devtron": "^1.4.0",
         "electron-packager": "^9.0.1",
-        "electron": "^1.8.0",
+        "electron": "~1.7.10",
         "xo": "^0.18.2"
     },
     "xo": {
@@ -30,6 +32,9 @@
         "envs": [
             "node",
             "browser"
+        ],
+        "ignores": [
+            "adapter.js"
         ]
     }
 }
