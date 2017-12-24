@@ -1,7 +1,7 @@
 {
     "name": "electron-desktopCapturer",
     "productName": "electron-desktopCapturer",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Electron desktopCapturer test tool",
     "license": "MIT",
     "repository": "https://github.com/a-sync/electron-desktopCapturer",
