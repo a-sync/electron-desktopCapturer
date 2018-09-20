@@ -16,7 +16,7 @@ function getSources(type) { // eslint-disable-line no-unused-vars
 
                 const btn = document.createElement('button');
                 btn.textContent = `${dcSource.name} (${dcSource.id})`;
-                btn.onclick = function () {
+                btn.addEventListener('click', () => {
                     setVideo({
                         audio: false,
                         video: {
@@ -26,7 +26,7 @@ function getSources(type) { // eslint-disable-line no-unused-vars
                             }
                         }
                     });
-                };
+                });
 
                 const img = new Image();
                 img.src = dcSource.thumbnail.toDataURL();
@@ -47,9 +47,9 @@ function setVideo(mediaConstraints) {
         .then(stream => {
             video.srcObject = stream;
         })
-        .catch(err => {
-            console.error('getUserMedia error', err);
-            alert(JSON.stringify(err, null, 2)); // eslint-disable-line no-alert
+        .catch(error => {
+            console.error('getUserMedia error', error);
+            alert(JSON.stringify(error, null, 2)); // eslint-disable-line no-alert
         });
 }
 
